@@ -40,27 +40,30 @@
    ```bash
    cd server
    
-Поднимите стек контейнеров:
+2. Поднимите стек контейнеров:
    ```Bash
    docker compose up -d
 
-Скачайте LLM-модель для Ollama:
+3. Скачайте LLM-модель для Ollama:
    ```Bash
    docker exec -it ollama ollama run qwen2.5:3b
-Настройте интеграции Wyoming и Ollama в веб-интерфейсе Home Assistant (http://<IP_СЕРВЕРА>:8123).
+   
+4. Настройте интеграции Wyoming и Ollama в веб-интерфейсе Home Assistant (http://<IP_СЕРВЕРА>:8123).
 
-2. Запуск Клиента
-Перейдите в папку клиента на устройстве-колонке:
+### 2. Запуск Клиента
+1. Перейдите в папку клиента на устройстве-колонке:
 
-Bash
-cd client
-Проверьте индекс вашего микрофона командой arecord -l и при необходимости обновите параметр --mic-device plughw:X,Y в docker-compose.yml.
+   ```Bash
+   cd client
+   
+2. Проверьте индекс вашего микрофона командой arecord -l и при необходимости обновите параметр --mic-device plughw:X,Y в docker-compose.yml.
 
-Поднимите клиент:
+3. Поднимите клиент:
 
-Bash
-docker compose up -d
-В Home Assistant добавьте интеграцию Wyoming Protocol, указав IP-адрес клиента и порт 10420.
+   ```Bash
+   docker compose up -d
+   
+4. В Home Assistant добавьте интеграцию Wyoming Protocol, указав IP-адрес клиента и порт 10420.
 
 ## 🌐 Использование вне дома (VPN)
 Для работы клиента вне локальной сети используется Tailscale.
@@ -68,16 +71,13 @@ docker compose up -d
 Установите Tailscale на сервер и клиент.
 
 В файле client/docker-compose.yml укажите Tailscale IP сервера (начинается на 100.x.x.x) вместо локального адреса.
+
 ## 📚 Стек технологий
-Умный дом: Home Assistant
+-Умный дом: Home Assistant
+-Ассистент: OHF Linux Voice Assistant
+-Wake-word: OpenWakeWord
+-STT (Распознавание): Wyoming Faster-Whisper
+-LLM (Интеллект): Ollama + Qwen 2.5
+-TTS (Синтез речи): Wyoming Piper
 
-Ассистент: OHF Linux Voice Assistant
-
-Wake-word: OpenWakeWord
-
-STT (Распознавание): Wyoming Faster-Whisper
-
-LLM (Интеллект): Ollama + Qwen 2.5
-
-TTS (Синтез речи): Wyoming Piper
 
