@@ -73,16 +73,16 @@
 В файле client/docker-compose.yml укажите Tailscale IP сервера (начинается на 100.x.x.x) вместо локального адреса.
 
 ## 📚 Стек технологий
--Умный дом: Home Assistant
+- Умный дом: Home Assistant
 
--Ассистент: OHF Linux Voice Assistant
+- Ассистент: OHF Linux Voice Assistant
 
--Wake-word: OpenWakeWord
+- Wake-word: OpenWakeWord
 
--STT (Распознавание): Wyoming Faster-Whisper
+- STT (Распознавание): Wyoming Faster-Whisper
 
--LLM (Интеллект): Ollama + любая модель
+- LLM (Интеллект): Ollama + любая модель
 
--TTS (Синтез речи): Wyoming Piper
+- TTS (Синтез речи): Wyoming Piper
 
 
