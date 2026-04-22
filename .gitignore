@@ -1,0 +1,13 @@
+# Игнорируем данные контейнеров (базы данных и тяжелые модели ИИ)
+server/ha_config/
+server/whisper_data/
+server/piper_data/
+server/ollama_data/
+client/lva_config/
+
+# Секреты и переменные окружения
+.env
+
+# Системные файлы ОС
+.DS_Store
+Thumbs.db
