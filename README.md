@@ -62,13 +62,13 @@ Bash
 docker compose up -d
 В Home Assistant добавьте интеграцию Wyoming Protocol, указав IP-адрес клиента и порт 10420.
 
-🌐 Использование вне дома (VPN)
+##🌐 Использование вне дома (VPN)
 Для работы клиента вне локальной сети используется Tailscale.
 
 Установите Tailscale на сервер и клиент.
 
 В файле client/docker-compose.yml укажите Tailscale IP сервера (начинается на 100.x.x.x) вместо локального адреса.
-📚 Стек технологий
+##📚 Стек технологий
 Умный дом: Home Assistant
 
 Ассистент: OHF Linux Voice Assistant
