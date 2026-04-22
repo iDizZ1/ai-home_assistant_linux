@@ -68,3 +68,15 @@ docker compose up -d
 Установите Tailscale на сервер и клиент.
 
 В файле client/docker-compose.yml укажите Tailscale IP сервера (начинается на 100.x.x.x) вместо локального адреса.
+📚 Стек технологий
+Умный дом: Home Assistant
+
+Ассистент: OHF Linux Voice Assistant
+
+Wake-word: OpenWakeWord
+
+STT (Распознавание): Wyoming Faster-Whisper
+
+LLM (Интеллект): Ollama + Qwen 2.5
+
+TTS (Синтез речи): Wyoming Piper
