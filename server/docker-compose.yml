@@ -1,0 +1,43 @@
+services:
+  # 1. Home Assistant - база умного дома
+  homeassistant:
+    image: lscr.io/linuxserver/homeassistant:latest
+    container_name: homeassistant
+    network_mode: host
+    environment:
+      - TZ=Europe/Moscow
+    volumes:
+      - ./ha_config:/config
+    restart: unless-stopped
+
+  # 2. Whisper (STT) - превращает голос в текст
+  whisper:
+    image: rhasspy/wyoming-whisper:latest
+    container_name: whisper
+    ports:
+      - "10300:10300"
+    command: [ "--model", "tiny-int8", "--language", "ru", "--beam-size", "1" ]
+    volumes:
+      - ./whisper_data:/data
+    restart: unless-stopped
+    
+# 3. Piper (TTS) - превращает текст в голос
+  piper:
+    image: rhasspy/wyoming-piper:latest
+    container_name: piper
+    ports:
+      - "10200:10200"
+    command: [ "--voice", "ru_RU-dmitri-medium" ]
+    volumes:
+      - ./piper_data:/data
+    restart: unless-stopped
+
+  # 4. Ollama (LLM) - локальный интеллект
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama_data:/root/.ollama
+    restart: unless-stopped

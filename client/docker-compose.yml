@@ -1,0 +1,31 @@
+services:
+  # Детектор wake-word
+  openwakeword:
+    image: rhasspy/wyoming-openwakeword:latest
+    container_name: openwakeword
+    network_mode: host
+    restart: unless-stopped
+
+  # Linux Voice Assistant от OHF
+  voice-assistant:
+    image: ghcr.io/ohf-voice/linux-voice-assistant:latest
+    container_name: linux-voice-assistant
+    network_mode: host
+    privileged: true
+    volumes:
+      - /dev/snd:/dev/snd
+      - ./lva_config:/app/configuration
+    environment:
+      - TZ=Europe/Moscow
+    command: [
+      "--name", "Jarvis-LVA",
+      "--uri", "tcp://0.0.0.0:10420",
+      "--mic-device", "plughw:1,0",
+      "--snd-device", "plughw:1,0",
+      "--wake-uri", "tcp://127.0.0.1:10400",
+      "--wake-word-name", "assistent"
+    ]
+    depends_on:
+      - openwakeword
+    restart: unless-stopped
+
